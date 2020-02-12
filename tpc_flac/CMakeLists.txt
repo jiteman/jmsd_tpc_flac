@@ -7,18 +7,33 @@ JMSD_SHOW_PROJECT_HEADER()
 
 
 include( ${JMSD_COMPONENT_CMAKE_SETTINGS_PATH}/tpc-flac-lib-set-compiler-settings.cmake )
-set( JMSD_THIS_PROJECT_SOURCE_ROOT ${JMSD_COMPONENT_SOURCE_ROOT_PATH}/include )
+set( JMSD_THIS_PROJECT_SOURCE_ROOT ${JMSD_COMPONENT_SOURCE_ROOT_PATH} )
 
 ## include dependencies
 set( ${PROJECT_NAME}_DEPENDENCY_DIRS_VAR
 	${JMSD_PLATFORM_SOURCES}
-	${JMSD_THIS_PROJECT_SOURCE_ROOT} )
+	${JMSD_THIS_PROJECT_SOURCE_ROOT}/include )
 list( REMOVE_DUPLICATES ${PROJECT_NAME}_DEPENDENCY_DIRS_VAR )
 include_directories( ${${PROJECT_NAME}_DEPENDENCY_DIRS_VAR} )
 
 
 ## this project headers and sources enumeration section
-file( GLOB_RECURSE header_and_source_files ${JMSD_THIS_PROJECT_SOURCE_ROOT}/*.h* ${JMSD_THIS_PROJECT_SOURCE_ROOT}/*.c* )
+file( GLOB_RECURSE header_and_source_files
+	${JMSD_THIS_PROJECT_SOURCE_ROOT}/src/*.h*
+	${JMSD_THIS_PROJECT_SOURCE_ROOT}/src/*.c*
+	${JMSD_THIS_PROJECT_SOURCE_ROOT}/src/flac//*.h*
+	${JMSD_THIS_PROJECT_SOURCE_ROOT}/src/flac//*.c*
+	${JMSD_THIS_PROJECT_SOURCE_ROOT}/src/flac/libFLAC/*.h*
+	${JMSD_THIS_PROJECT_SOURCE_ROOT}/src/flac/libFLAC++/*.c*
+	${JMSD_THIS_PROJECT_SOURCE_ROOT}/src/flac/metaflac/*.h*
+	${JMSD_THIS_PROJECT_SOURCE_ROOT}/src/flac/metaflac/*.c*
+	${JMSD_THIS_PROJECT_SOURCE_ROOT}/src/flac/plugin_common/*.h*
+	${JMSD_THIS_PROJECT_SOURCE_ROOT}/src/flac/plugin_common/*.c*
+	${JMSD_THIS_PROJECT_SOURCE_ROOT}/src/flac/plugin_xmms/*.h*
+	${JMSD_THIS_PROJECT_SOURCE_ROOT}/src/flac/plugin_xmms/*.c*
+	${JMSD_THIS_PROJECT_SOURCE_ROOT}/src/flac/share/*.h*
+	${JMSD_THIS_PROJECT_SOURCE_ROOT}/src/flac/share/*.c*
+	)
 add_library( ${PROJECT_NAME} SHARED ${header_and_source_files} )
 
 
