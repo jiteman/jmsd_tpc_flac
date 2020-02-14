@@ -7,16 +7,19 @@ if ( WIN32 )
 	## list( APPEND ${PROJECT_NAME}_C_FLAGS "/wd" ) #
 	list( APPEND ${PROJECT_NAME}_C_FLAGS "/wd4057" ) # '': '' differs in indirection to slightly different base types from ''
 	list( APPEND ${PROJECT_NAME}_C_FLAGS "/wd4127" ) # conditional expression is constant
-#	list( APPEND ${PROJECT_NAME}_C_FLAGS "/wd4131" ) # '': uses old-style declarator
-#	list( APPEND ${PROJECT_NAME}_C_FLAGS "/wd4242" ) # '': conversion from '' to '', possible loss of data
-#	list( APPEND ${PROJECT_NAME}_C_FLAGS "/wd4244" ) # '': conversion from '' to '', possible loss of data
+	list( APPEND ${PROJECT_NAME}_C_FLAGS "/wd4131" ) # '': uses old-style declarator
+	list( APPEND ${PROJECT_NAME}_C_FLAGS "/wd4204" ) # nonstandard extension used: non-constant aggregate initializer
+	list( APPEND ${PROJECT_NAME}_C_FLAGS "/wd4242" ) # '': conversion from '' to '', possible loss of data
+	list( APPEND ${PROJECT_NAME}_C_FLAGS "/wd4244" ) # '': conversion from '' to '', possible loss of data
 	list( APPEND ${PROJECT_NAME}_C_FLAGS "/wd4255" ) # '': no function prototype given: converting '()' to '(void)'
 	list( APPEND ${PROJECT_NAME}_C_FLAGS "/wd4267" ) # '': conversion from '' to '', possible loss of data
+	list( APPEND ${PROJECT_NAME}_C_FLAGS "/wd4334" ) # '': result of 32-bit shift implicitly converted to 64 bits (was 64-bit shift intended?)
 #	list( APPEND ${PROJECT_NAME}_C_FLAGS "/wd4365" ) # '': conversion from '' to '', signed/unsigned mismatch
 	list( APPEND ${PROJECT_NAME}_C_FLAGS "/wd4388" ) # '': signed/unsigned mismatch
 	list( APPEND ${PROJECT_NAME}_C_FLAGS "/wd4668" ) # '' is not defined as a preprocessor macro, replacing with '0' for '#if/#elif'
 	list( APPEND ${PROJECT_NAME}_C_FLAGS "/wd4701" ) # potentially uninitialized local variable '' used
-#	list( APPEND ${PROJECT_NAME}_C_FLAGS "/wd4703" ) # potentially uninitialized local pointer variable '' used
+	list( APPEND ${PROJECT_NAME}_C_FLAGS "/wd4702" ) # unreachable code
+	list( APPEND ${PROJECT_NAME}_C_FLAGS "/wd4703" ) # potentially uninitialized local pointer variable '' used
 	list( APPEND ${PROJECT_NAME}_C_FLAGS "/wd4706" ) # assignment within conditional expression
 	list( APPEND ${PROJECT_NAME}_C_FLAGS "/wd4996" ) # '': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: . See online help for details.
 #	list( APPEND ${PROJECT_NAME}_C_FLAGS "/wd4996" ) # '': This function or variable may be unsafe. Consider using '' instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
